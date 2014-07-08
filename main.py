@@ -14,7 +14,7 @@ def get_connection():
                          user=USER_NAME, password=PASSWORD, charset='utf8')
 
 
-class MainHandler(webapp2.RequestHandler):
+class StoreData(webapp2.RequestHandler):
     def post(self):
         conn = get_connection()
         cursor = conn.cursor()
@@ -30,9 +30,11 @@ class MainHandler(webapp2.RequestHandler):
         
         
         self.response.write('Hello world!')
+        
+
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/storedata', StoreData)
 ], debug=True)
 
 
