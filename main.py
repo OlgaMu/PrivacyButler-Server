@@ -26,7 +26,7 @@ class StoreUserChoices(webapp2.RequestHandler):
         conn.commit()
         conn.close()
     
-        self.response.write('Hello world!')
+        self.response.write('Saved')
         
 
 app = webapp2.WSGIApplication([
