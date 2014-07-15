@@ -14,7 +14,7 @@ def get_connection():
                          user=USER_NAME, password=PASSWORD, charset='utf8')
 
 
-class StoreData(webapp2.RequestHandler):
+class StoreUserChoices(webapp2.RequestHandler):
     def post(self):
         conn = get_connection()
         cursor = conn.cursor()
@@ -25,18 +25,13 @@ class StoreData(webapp2.RequestHandler):
                         self.request.get('choice')))
         conn.commit()
         conn.close()
-        
-        
-        
-        
+    
         self.response.write('Hello world!')
         
 
-
 app = webapp2.WSGIApplication([
-    ('/storedata', StoreData)
+    ('/storeuserchoices', StoreUserChoices)
 ], debug=True)
-
 
 
 
